@@ -1,8 +1,6 @@
 package com.java.javamarket.persistence.entity;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name= "compras_productos")
@@ -15,7 +13,16 @@ public class CompraProducto {
     private Double total;
 
     private Boolean estado;
+    @ManyToOne
+    // todas las columnas que de JOin COlumn que tengas Many to One deberia tener el insertable false y updatable false
+    @JoinColumn(name="id_compra",insertable = false,updatable = false)
+    private Compra compra;
 
+    @ManyToOne
+    @JoinColumn(name = "id_producto",insertable = false,updatable = false)
+    private Producto producto;
+
+    
     public ComprasProductoPK getId() {
         return id;
     }
