@@ -68,5 +68,7 @@ public class ProductoRepository implements ProductRepository {
     public void delete(int idProducto){
         productoCrudRepository.deleteById(idProducto);
     }
+ads}{ñañdlsñ{ads}}ñ{das}{ñads}{ñad}ñ{ads}ñ{ads}ñ{ads}ñ{ads}ñ{ads}ñ{ads}ñ{ads}ñ{ad}ñ{asd}ñ{asd}{ñasd
 
+        
 }
