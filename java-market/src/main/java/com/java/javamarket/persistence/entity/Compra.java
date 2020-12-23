@@ -1,5 +1,7 @@
 package com.java.javamarket.persistence.entity;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -28,8 +30,13 @@ public class Compra {
     @JoinColumn(name = "id_cliente",insertable = false,updatable = false)
     private Cliente cliente;//NO crear nuevos clientes traves de esta relación
 
-    @OneToMany(mappedBy = "producto")
+    @OneToMany(mappedBy = "compra", cascade = {CascadeType.ALL})
     private List<CompraProducto> productos;
+
+
+    public Cliente getCliente() {
+        return cliente;
+    }
 
     public Integer getIdCompra() {
         return idCompra;
@@ -77,5 +84,17 @@ public class Compra {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public List<CompraProducto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<CompraProducto> productos) {
+        this.productos = productos;
     }
 }

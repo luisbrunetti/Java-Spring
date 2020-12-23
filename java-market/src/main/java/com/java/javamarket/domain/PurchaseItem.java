@@ -2,7 +2,7 @@ package com.java.javamarket.domain;
 
 public class PurchaseItem {
     private int productId;
-    private int cantidad;
+    private int quantity;
     private double total;
     private boolean active;
 
@@ -15,12 +15,12 @@ public class PurchaseItem {
         this.productId = productId;
     }
 
-    public int getCantidad() {
-        return cantidad;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public double getTotal() {
