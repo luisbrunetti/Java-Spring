@@ -26,7 +26,7 @@ public class ProductoRepository {
     public Optional<Producto> getProducto(int idProducto){
         return productoCrudRepository.findById(idProducto);
     }
-
+//
     public Producto save(Producto producto){
         return productoCrudRepository.save(producto);
     }
