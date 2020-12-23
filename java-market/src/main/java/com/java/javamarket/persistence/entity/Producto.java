@@ -9,8 +9,7 @@ public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)// Le da identifidad a alos registros de nuestros productos
     @Column(name="id_producto")
-    private Integer idProducto;
-    // se deja normal porque e tiene el mismo nombre que en la tabla
+    private Integer idProducto; // se deja normal porque e tiene el mismo nombre que en la tabla
     private String  nombre;
 
     @Column(name = "id_categoria")

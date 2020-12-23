@@ -26,8 +26,7 @@ public class Compra {
 
     @ManyToOne
     @JoinColumn(name = "id_cliente",insertable = false,updatable = false)
-    //NO crear nuevos clientes traves de esta relación
-    private Cliente cliente;
+    private Cliente cliente;//NO crear nuevos clientes traves de esta relación
 
     @OneToMany(mappedBy = "producto")
     private List<CompraProducto> productos;

@@ -7,12 +7,10 @@ import javax.persistence.*;
 public class CompraProducto {
     @EmbeddedId
     private ComprasProductoPK id;
-
     private Integer cantidad;
-
     private Double total;
-
     private Boolean estado;
+
     @ManyToOne
     // todas las columnas que de JOin COlumn que tengas Many to One deberia tener el insertable false y updatable false
     @JoinColumn(name="id_compra",insertable = false,updatable = false)

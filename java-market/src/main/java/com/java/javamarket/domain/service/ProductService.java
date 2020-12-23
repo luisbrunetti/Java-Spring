@@ -18,15 +18,19 @@ public class ProductService {
     public List<Product> getAll(){
         return productRepository.getAll();
     }
+
     public Optional<Product> getProduct(int productId){
         return productRepository.getProduct(productId);
     }
+
     public Optional<List<Product>> getByCategory(int categoryId){
         return productRepository.getByCategory(categoryId);
     }
+
     public Product save(Product product){
         return productRepository.save(product);
     }
+
     public boolean delete(int productId){
         return getProduct(productId).map(product -> {
             productRepository.delete(productId);
