@@ -29,4 +29,6 @@ public class PurchaseController {
     public ResponseEntity<Purchase> save(@RequestBody Purchase purchase){
         return new ResponseEntity<>(purchaseService.save(purchase), HttpStatus.CREATED);
     }
+
+
 }
