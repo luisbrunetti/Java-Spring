@@ -2,6 +2,10 @@ package com.java.javamarket.web.controller;
 
 import com.java.javamarket.domain.Product;
 import com.java.javamarket.domain.service.ProductService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.apache.tomcat.util.http.parser.HttpParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,13 +22,22 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/all")
+    @ApiOperation("Get all SUpermarket products")
+    @ApiResponse(code = 200, message = "Ok")
     //public List<Product> getAll(){ return productService.getAll();}
     public ResponseEntity<List<Product>> getAll(){
         return new ResponseEntity<>(productService.getAll(), HttpStatus.OK);
     }
 
     @GetMapping("/{productId}")
-    public ResponseEntity <Product> getProduct(@PathVariable("productId") int productId){
+    @ApiOperation("Search a product with an ID")
+    @ApiResponses({
+            @ApiResponse(code = 200, message="Ok"),
+            @ApiResponse(code = 404, message = "Product Not Found")
+    })
+    public ResponseEntity <Product> getProduct(
+            @ApiParam(value = "The id of the product", required = true, example ="7")
+            @PathVariable("productId") int productId){
         return productService.getProduct(productId).map(product ->
                 new ResponseEntity<>(product, HttpStatus.OK))
                 .orElse( new ResponseEntity<>(HttpStatus.NOT_FOUND));
